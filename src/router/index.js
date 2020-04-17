@@ -6,13 +6,13 @@ Vue.use(VueRouter);
   const routes = [
     {
       path: '/',
-      name: 'Home',
-      component: () => import(/* webpackChunkName: "about" */ '../views/Movies.vue')
+      name: 'Discover',
+      component: () => import('../views/Discover.vue')
     },
     {
       path: '/favourite',
       name: 'Favourite',
-      component: () => import(/* webpackChunkName: "about" */ '../views/Favourite.vue')
+      component: () => import('../views/Favourite.vue')
     },
   ];
 

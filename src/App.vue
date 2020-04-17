@@ -4,7 +4,6 @@
       v-model="drawer"
       app
       clipped
-
     >
       <v-list dense>
         <v-list-item
@@ -46,11 +45,11 @@
   export default {
     name: 'App',
     data: () => ({
-      drawer: null,
+      drawer: false,
       sidebarLinks: [
         {
-          title: 'Home',
-          url: 'Home',
+          title: 'Discover',
+          url: 'Discover',
           icon: 'mdi-view-dashboard'
         },
         {
