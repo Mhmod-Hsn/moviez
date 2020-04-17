@@ -4,24 +4,24 @@
       v-model="drawer"
       app
       clipped
+
     >
       <v-list dense>
-        <v-list-item link>
+        <v-list-item
+          :key="index"
+          :to="{name: link.url}"
+          exact
+          link
+          v-for="(link,index) in sidebarLinks"
+        >
           <v-list-item-action>
-            <v-icon>mdi-view-dashboard</v-icon>
+            <v-icon>{{link.icon}}</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title>Movies</v-list-item-title>
+            <v-list-item-title>{{link.title}}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
-        <v-list-item link>
-          <v-list-item-action>
-            <v-icon>mdi-settings</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title>Settings</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
+
       </v-list>
     </v-navigation-drawer>
 
@@ -33,22 +33,38 @@
       <v-toolbar-title>Moviez App</v-toolbar-title>
     </v-app-bar>
 
-    <router-view/>
-
+    <transition name="fade">
+      <router-view/>
+    </transition>
     <v-footer app>
-      <span>&copy; 2019</span>
+      <span>Copyrights reserved &copy; {{new Date().getFullYear()}} </span>
     </v-footer>
   </v-app>
 </template>
 
 <script>
-  import axios from 'axios';
-
   export default {
     name: 'App',
     data: () => ({
       drawer: null,
+      sidebarLinks: [
+        {
+          title: 'Home',
+          url: 'Home',
+          icon: 'mdi-view-dashboard'
+        },
+        {
+          title: 'Favourite',
+          url: 'Favourite',
+          icon: 'mdi-heart'
+        }
+      ],
       info: null,
     }),
   }
 </script>
+
+<style lang="sass">
+  @import 'assets/css/styles'
+
+</style>
