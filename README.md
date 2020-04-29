@@ -1,5 +1,7 @@
 # moviez
 
+![](preview.jpg)
+
 ## Project setup
 ```
 npm install
