@@ -105,7 +105,7 @@
 
 						<v-card-actions>
 							<v-spacer></v-spacer>
-							<v-btn @click="addToFav(movie)" icon>
+							<v-btn @click.prevent="addToFav(movie)" icon>
 								<div :is-active="movie.fav" class="heart"></div>
 							</v-btn>
 
